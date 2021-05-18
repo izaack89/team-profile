@@ -17,7 +17,15 @@ const teamInfo = []
 const questionsManager = [
     {
         name: 'id',
-        message: 'What is the team  manager\'s Id?'
+        message: 'What is the team  manager\'s Id?',
+        validate: idInput => {
+                if  (isNaN(idInput)) {
+                    console.log ("\r\nPlease enter the manager's ID!")
+                    return false; 
+                } else {
+                    return true;
+                }
+        }
     },
     {
         name: 'name',
@@ -29,7 +37,15 @@ const questionsManager = [
     },
     {
         name: 'officeNumber',
-        message: 'What is the team  manager\'s Office Number?'
+        message: 'What is the team  manager\'s Office Number?',
+        validate: idInput => {
+                if  (isNaN(idInput)) {
+                    console.log ("\r\nPlease enter the Office Number!")
+                    return false; 
+                } else {
+                    return true;
+                }
+        }
     }
 ];
 
@@ -38,7 +54,15 @@ const questionsManager = [
 const questionsEngineer = [
     {
         name: 'id',
-        message: 'What is the engineer\'s Id?'
+        message: 'What is the engineer\'s Id?',
+        validate: idInput => {
+                if  (isNaN(idInput)) {
+                    console.log ("\r\nPlease enter the engineer's ID!")
+                    return false; 
+                } else {
+                    return true;
+                }
+        }
     },
     {
         name: 'name',
@@ -59,7 +83,15 @@ const questionsEngineer = [
 const questionsIntern = [
     {
         name: 'id',
-        message: 'What is the intern\'s Id?'
+        message: 'What is the intern\'s Id?',
+        validate: idInput => {
+                if  (isNaN(idInput)) {
+                    console.log ("\r\nPlease enter the inten's ID!")
+                    return false; 
+                } else {
+                    return true;
+                }
+        }
     },
     {
         name: 'name',

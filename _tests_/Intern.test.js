@@ -19,6 +19,12 @@ describe("Intern class", () => {
         });
     });
 
+    describe('Gets intern School value', () => {
+        it("returns the value of the School", () => {
+            expect(intern.getSchool()).toEqual(expect.stringContaining(intern.school.toString()));
+        });
+    });
+
     describe("getName ", () => {
         it("returns German Ramirez if is correct", () => {
             expect(intern.getName()).toBe("German Ramirez");

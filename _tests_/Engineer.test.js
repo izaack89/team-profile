@@ -18,7 +18,11 @@ describe("Engineer class", () => {
             expect(engineer.getGithub()).toBe("izaack89");
         });
     });
-
+    describe('Gets engineer Github value', () => {
+        it("returns the value of the github", () => {
+            expect(engineer.getGithub()).toEqual(expect.stringContaining(engineer.github.toString()));
+        });
+    });
     describe("getName ", () => {
         it("returns German Ramirez if is correct", () => {
             expect(engineer.getName()).toBe("German Ramirez");
