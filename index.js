@@ -14,19 +14,19 @@ const teamInfo = []
 //I create the questions for the manager profile
 const questionsManager = [
     {
-        name: 'managerId',
+        name: 'id',
         message: 'What is the team  manager\'s Id?'
     },
     {
-        name: 'managerName',
+        name: 'name',
         message: 'What is the team  manager\'s Name?'
     },
     {
-        name: 'managerEmail',
+        name: 'email',
         message: 'What is the team  manager\'s email?'
     },
     {
-        name: 'managerOfficeNumber',
+        name: 'officeNumber',
         message: 'What is the team  manager\'s Office Number?'
     }
 ];
@@ -35,19 +35,19 @@ const questionsManager = [
 //I create the questions for the engineer profile
 const questionsEngineer = [
     {
-        name: 'engineerId',
+        name: 'id',
         message: 'What is the engineer\'s Id?'
     },
     {
-        name: 'engineerName',
+        name: 'name',
         message: 'What is the engineer\'s Name?'
     },
     {
-        name: 'engineerEmail',
+        name: 'email',
         message: 'What is the engineer\'s email?'
     },
     {
-        name: 'engineerGithub',
+        name: 'gitHub',
         message: 'What is the engineer\'s GitHub username?'
     }
 ];
@@ -56,7 +56,7 @@ const questionsEngineer = [
 //I create the questions for the intern profile
 const questionsIntern = [
     {
-        name: 'internId',
+        name: 'id',
         message: 'What is the intern\'s Id?'
     },
     {
@@ -64,11 +64,11 @@ const questionsIntern = [
         message: 'What is the intern\'s Name?'
     },
     {
-        name: 'internEmail',
+        name: 'email',
         message: 'What is the intern\'s email?'
     },
     {
-        name: 'internSchool',
+        name: 'school',
         message: 'What is the intern\'s School?'
     }
 ];
@@ -93,7 +93,7 @@ inquirer
         switch (afterActions) {
             case 'manager':
                 // I create an instance of the Manager class to storage the information providen on the questionnarie
-                const manager = new Manager(dataQuestions.managerId, dataQuestions.managerName, dataQuestions.managerEmail, dataQuestions.managerOfficeNumber);
+                const manager = new Manager(dataQuestions.id, dataQuestions.name, dataQuestions.email, dataQuestions.officeNumber);
                 // I save the instance of the class into an array , this will help me to use it when I print the HTML 
                 teamInfo.push(manager); 
                 // I call the question of add a Member once I saved the information of the Manager
@@ -114,7 +114,7 @@ inquirer
                 break;
             case 'engineer':
                 // I create an instance of the Engineer class to storage the information providen on the questionnarie
-                const engineer = new Engineer(dataQuestions.engineerId, dataQuestions.engineerName, dataQuestions.engineerEmail, dataQuestions.engineerGithub);
+                const engineer = new Engineer(dataQuestions.id, dataQuestions.name, dataQuestions.email, dataQuestions.gitHub);
                 // I save the instance of the class into an array , this will help me to use it when I print the HTML 
                 teamInfo.push(engineer);
                 // I call the question of add a Member once I saved the information of the Engineer
@@ -122,7 +122,7 @@ inquirer
                 break;
             case 'intern':
                 // I create an instance of the Intern class to storage the information providen on the questionnarie
-                const intern = new Intern(dataQuestions.internId, dataQuestions.internName, dataQuestions.internEmail, dataQuestions.internSchool);
+                const intern = new Intern(dataQuestions.id, dataQuestions.name, dataQuestions.email, dataQuestions.school);
                 // I save the instance of the class into an array , this will help me to use it when I print the HTML 
                 teamInfo.push(intern);
                 // I call the question of add a Member once I saved the information of the Intern
