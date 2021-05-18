@@ -6,8 +6,10 @@
   "directories": {
     "lib": "lib"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {    
+    "start": "node index",
+    "watch": "nodemon index",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
