@@ -12,7 +12,7 @@ const htmlMemberSection = function (employee) {
     } else if (role === "Engineer") {
         fontIcon = `<i class="fas fa-laptop-code"></i>`;
         extraInfo = `
-                            <li class="list-group-item">Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a> </li>
+                            <li class="list-group-item">Github: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a> </li>
         `;
     } else {
         fontIcon = `<i class="fas fa-graduation-cap"></i>`;
@@ -31,7 +31,7 @@ const htmlMemberSection = function (employee) {
 
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">ID:${employee.getId()} </li>
+                            <li class="list-group-item">ID: ${employee.getId()} </li>
                             <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
                             ${extraInfo}
                         </ul>
