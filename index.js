@@ -80,7 +80,7 @@ const questionMember= [
         type: 'list',
         name: 'addMember',
         message: 'Which type of team member would you like to add',
-        choices: ['Engineer', 'Intern','None'],
-        default: 'None'
+        choices: ['Engineer', 'Intern','I don\'t want to add any more team members'],
+        default: 'I don\'t want to add any more team members'
     }
 ];
