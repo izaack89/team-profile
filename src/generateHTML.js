@@ -1,30 +1,51 @@
 
-const htmlMemberSection = function (member) {
-    let htmlMemberSection =  `
-<div class="col-xs-2 col-sm-3 py-2">
-    <div class="card" style="width: 18rem;">
-        <div class="card-header custom-background-color ">
-            <h4>${member.name}</h4>
-            <p><i class="fas fa-graduation-cap"></i> Intern</p>
-        </div>
+const htmlMemberSection = function (employee) {
 
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">ID:${member.id} </li>
-                <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>`;
-    htmlMemberSection +=`
-            </ul>
-        </div>
-    </div>
-</div>  
+    const role = employee.getRole();
+    let fontIcon = '';
+    let extraInfo = '';
+    if (role === "Manager") {
+        fontIcon = `<i class="fas fa-chart-bar"></i>`;
+        extraInfo = `
+                            <li class="list-group-item">Office Number: ${employee.officeNumber}</li>
+        `;
+    } else if (role === "Engineer") {
+        fontIcon = `<i class="fas fa-laptop-code"></i>`;
+        extraInfo = `
+                            <li class="list-group-item">Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a> </li>
+        `;
+    } else {
+        fontIcon = `<i class="fas fa-graduation-cap"></i>`;
+        extraInfo = `
+                            <li class="list-group-item">School: ${employee.getSchool()}</li>
+        `;
+    }
+
+    let htmlMemberSection =  `
+            <div class="col-xs-2 col-sm-3 py-2">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header custom-background-color ">
+                        <h4>${employee.getName()}</h4>
+                        <p>${fontIcon} ${role}</p>
+                    </div>
+
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">ID:${employee.getId()} </li>
+                            <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+                            ${extraInfo}
+                        </ul>
+                    </div>
+                </div>
+            </div>  
     `;
     return htmlMemberSection;
 }
 
 const generateHTML = function (team) {
     let memberSection = '';
-    team.forEach(member => {
-        memberSection += htmlMemberSection(member);
+    team.forEach(employee => {
+        memberSection += htmlMemberSection(employee);
     });
     const htmlTemplate = `
 <!DOCTYPE html>
@@ -85,6 +106,7 @@ const generateHTML = function (team) {
 
 </html>
     `;
+    return htmlTemplate;
  }
 
 // Here the function of generateHTML is exported 
