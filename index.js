@@ -2,6 +2,8 @@
 const fs = require('fs'); 
 const inquirer = require('inquirer');
 
+//
+const generateHTML = require('./src/generateHTML');
 // Import the classes of Engineer,Manager and Intern into this file so I can use it
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -60,7 +62,7 @@ const questionsIntern = [
         message: 'What is the intern\'s Id?'
     },
     {
-        name: 'internName',
+        name: 'name',
         message: 'What is the intern\'s Name?'
     },
     {
@@ -108,7 +110,11 @@ inquirer
                     inquirerDisplay(questionsIntern, 'intern');
                 } else {
                     // If this happend I will call the function that create the HTML file 
-                    console.log(teamInfo); 
+                    const htmlTemplate = generateHTML(teamInfo);
+                    const filename = './dist/index.html'
+                    fs.writeFile(filename, htmlTemplate, (err) =>
+                        err ? console.log(err) : console.log('SuccessFully created your Team Profile file!')
+                    );
                 }
                 
                 break;
